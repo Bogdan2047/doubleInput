@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.main{
+    border: black 2px solid;
+    height: 200px;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+    
+.input1 {
+    position:relative;
+    border: none;
+    outline: none;
+    width: 20px;
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+
+.input2 {
+
+    position: relative;
+    border: none;
+    outline: none;
+    width: 60px;
+    padding-left: 2px;
+}
+
+.div {
+    width: 300px;
+    border-bottom: grey 2px solid;
+    height: 30px;
+    padding: 0 auto;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: block;
+}
+
+.p{
+    margin-left: 110px;
+    width: 80px;
+    color: grey;
+}
+.second{
+    padding: 0 auto;
+    margin: 0 auto;
+    width: 300px;
+}
+
+</style>
+<body>
+    <div class="main">
+        <div class="div" id="line">
+            <input type='text' class="input1" id="one" placeholder="0" maxlength="5" >/</input>
+            <input type='text' class="input2" id="two" placeholder="0" maxlength="5"></input>
+            <span class="p">descriptions</span>
+        </div>
+        <div class="second">
+            <h4></h4>
+        </div>
+        </div>  
+    <script>
+        let input1 = document.getElementsByClassName('input1')[0];
+        let input2 = document.getElementsByClassName('input2')[0];
+        let h = document.getElementsByTagName('h4')[0];
+
+        elem = document.getElementById('one')
+        elem2 = document.getElementById('two')
+        line = document.getElementById('line')
+
+        
+        function getInput () {
+       
+          if(input1.value === ''){
+            elem.style.cssText = `width: 20px`;
+            h.style.cssText = `color: red`;
+            h.innerHTML = 'заполните первую строку';
+          }if(input1.value !== ''){   
+            line.style.cssText = `border-bottom: orange 3px solid`;
+            h.innerHTML = 'возможно есть еще пустая строка';
+          }
+          if(input2.value === ''){
+
+
+            h.style.cssText = `color: red`;
+            h.innerHTML = 'заполните вторую строку';
+          }
+          if(input2.value !== ''){
+            
+            h.innerHTML = 'возможно есть еще пустая строка';
+            line.style.cssText = `border-bottom: orange 3px solid`;
+          }
+          if(input1.value !== '' && input2.value !== ''){
+            h.style.cssText = `color: green`;
+            line.style.cssText = `border-bottom: green 3px solid`;
+            h.innerHTML = 'все ровно';
+            
+          }
+          if(input1.value === '' && input2.value === ''){
+            h.innerHTML = 'заполните строки';
+          }
+        }
+
+        
+
+        input1.addEventListener('input', getInput);
+        input2.addEventListener('input', getInput);
+
+    
+        
+    </script>
+<script src="script.js"></script>
+</body>
+</html>
